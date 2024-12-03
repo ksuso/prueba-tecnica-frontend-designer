@@ -11,7 +11,7 @@ Prueba ténica para puesto como Front-End designer usando las siguiente tecnolog
 ![App Screenshot](https://ksuso.dev/prueba-siroko.jpg)
 
 ## Demo
-[Link Demo](https://ksuso.github.io/prueba-tecnica-frontend-designer/)(https://ksuso.github.io/prueba-tecnica-frontend-designer/)
+[Link Demo](https://ksuso.github.io/prueba-tecnica-frontend-designer/)
 
 ## 🔗 Mi Perfil en LinkedIn
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ksuso/)
