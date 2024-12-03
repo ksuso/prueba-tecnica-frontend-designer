@@ -1,0 +1,321 @@
+/* Reset */
+:root {
+	--animIn-duration: 0.3s;
+	--animOut-duration: 0.5s;
+  --anim-iteration-count: 1;
+  --scroll-behavior: smooth;
+	--color-bg: #000000;
+  --color-txt: #FFFFFF;
+  --color-link: #339B95;
+  --color-button: #339B95;
+  --color-linkhover: #2C5E5B;
+  --color-wh: #FFFFFF;
+  --color-bk: #000000;
+  --color-c1: #C92F58;
+	--color-c2: #311429;
+  --color-c3: #EFE5C3;
+  --color-c4: #5DC2BD;
+  --color-c5: #2C5E5B;
+	--color-c6: #2C0C23;
+  --color-transparent: rgba(255, 255, 255, .09);
+	--color-gy: #BBBBBB;
+  --color-error: #C51414;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	:root {
+		--animIn-duration: 0.01ms;
+		--animOut-duration: 0.01ms;
+		--anim-iteration-count: 1;
+		--scroll-behavior: auto;
+	}
+}
+* {
+	box-sizing: border-box;
+	margin: 0;
+}
+img, video, svg {
+  display: block;
+  max-width: 100%;
+	height: auto;
+}
+a.btn {
+	color: inherit;
+	text-decoration: none;
+	display: block;
+	text-align: center;
+}
+input, button, textarea, select {
+  font: inherit;
+}
+button {
+	background-color: transparent;
+	border: none;
+	color: inherit;
+}
+fieldset {
+	padding-block-start: initial;
+  padding-block-end: initial;
+  padding-inline-start: initial;
+  padding-inline-end: initial;
+  min-inline-size: initial;
+}
+div, section { 
+	position: relative;
+}
+
+/* Fonts */
+@font-face {
+	font-family: heading;
+	font-display: block;
+	src: local('LiberatorSIROKO-Heavy'),
+			 url('../fonts/LiberatorSIROKO-Heavy.ttf') format('truetype');
+}
+@font-face {
+	font-family: principal;
+	font-display: block;
+	src: local('Inconsolata-Regular'),
+			 url('../fonts/Inconsolata-Regular.ttf') format('truetype');
+}
+@font-face {
+	font-family: complementary;
+	font-display: block;
+	src: local('Inter_28pt-Bold'),
+			 url('../fonts/Inter_28pt-Bold.ttf') format('truetype');
+}
+
+/* Base */
+html {
+	font-size: 16px;
+	height: 100%;
+	scroll-behavior: var(--scroll-behavior);
+}
+body {
+ 	background-image: url("../images/background.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 100%;
+	height: 100vh;
+	background-color: var(--color-bg);
+	color: var(--color-txt);
+	font-family: principal;
+	font-size: 1rem;
+	font-weight: lighter;	
+	line-height: 1.17em;
+	text-rendering: geometricPrecision;
+	-webkit-font-smoothing: antialiased;
+	overflow-x: hidden;
+}
+h2{
+	color: var(--color-txt);
+	font-family: heading;
+	font-size: 35px;
+	font-weight: lighter;
+	line-height: 1.8em;
+	text-transform: uppercase;
+	
+}
+p + p {
+	margin-top: 1em;
+}
+section {
+	padding: 0 25px;
+}
+input[type="radio"] {	display: none;}
+input[type="radio"] + label {
+	display: block;
+	width: 100%;
+  position: relative;
+	padding: 12px 0 12px 35px;
+}
+input[type="radio"] + label::before {
+	content: "";
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background-color: none;
+	border: 2px solid var(--color-txt);
+	position: absolute;
+	top: 8px;
+  left: 4px;
+}
+input[type="radio"]:checked + label::after {
+	content: "";
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background-color: var(--color-txt);
+	position: absolute;
+	top: 14px;
+  left: 10px;
+}
+
+/* Utils */
+.block { display: block;}
+.hide { display: none !important;}
+.center {
+	width: 100%;
+	max-width: 940px;
+	margin: 0 auto;
+}
+.notSelectable {
+	user-select: none; 
+	text-decoration: line-through;
+}
+
+/* Buttons */
+.btn {
+	width: 100%;
+	background-color: var(--color-button);
+	border-radius: 4px;
+	padding: 12px;
+	font-family: complementary;
+}
+.btn > svg {
+	display: inline-block;
+	margin-left: 5px;
+	transition: transform var(--animOut-duration) ease-in-out;
+}
+.btn:hover > svg{
+  transform: translateX(5px);
+	transition: transform var(--animIn-duration) ease-in-out;
+}
+
+/* Custom */
+header {
+	padding: max(2.7vw, 25px) 25px;
+}
+
+.symbolAndLogo { display: none; }
+
+@media screen and (width >= 834px) {
+  .symbol { display: none; }
+	.symbolAndLogo { display: block; }
+}
+.stepsForm {
+	--posLeft: 0;
+	overflow: scroll;
+	position: relative;
+	scroll-behavior: smooth;
+	padding-bottom: 2em;
+}
+
+.stepsForm__carousel {
+	display: flex;
+	align-items: flex-start;
+	transform: translateX(var(--posLeft));
+	transition: transform .5s ease-in-out;
+	gap: 4%;
+}
+.stepsForm__step{
+	min-width: 100%;
+}
+.stepsForm__step > span {
+	background-color: var(--color-c4);
+ 	color: var(--color-c5);
+	text-transform: uppercase;
+	font-family: complementary;
+	font-size: 9px;
+	font-weight: 700;
+	padding: 3px 7px;
+	border-radius: 3px;
+}
+.stepsForm__box {
+	background-color: var(--color-c2);
+	padding: 20px;
+	border-radius: 3px;
+	margin-top:20px;
+}
+.stepsForm__box > span {
+  display: inline-block;
+	color: var(--color-c3);
+	text-transform: uppercase;
+	font-family: complementary;
+	font-size: 12px;
+	margin-bottom: 5px;
+}
+.stepForm__input {
+	background-color: rgba(255, 255, 255, .09);
+	border-radius: 4px;
+	font-size: 15px;
+	margin-bottom: 10px;
+	transition: transform var(--animOut-duration)  ease-in-out;
+}
+.stepForm__input:hover {
+	transform: scale(1.01);
+	transition: transform var(--animIn-duration) ease-in-out;
+}
+.stepsForm__cod {
+	padding: 10px;
+	border-radius: 2;
+	background: linear-gradient(270deg, #FFFFFF 0%, #BDBDBD 100%);
+	display: flex;
+	justify-content: space-between;
+	color: var(--color-bk);
+	font-weight: 700;
+	margin-bottom: .5em;
+}
+.stepsForm__cod > span {
+  font-size: 1.56em;
+}
+.stepsForm__cod > button {
+	font-size: 14px;
+	border: 2px solid;
+}
+.stepsForm__count {
+	background-color: var(--color-c6);
+	font-weight: 700;
+	padding: 10px 15px;
+	font-size: 27px;
+	display: flex;
+	line-height: 27px;
+	border-radius: 2px;
+	margin: 10px 0;
+}
+.stepsForm__count > svg {
+	margin-right: 10px;
+}
+.stepsForm__warning {
+	background-color: var(--color-error);
+	font-size: 1rem;
+	font-weight: 700;
+	padding: 10px 15px;
+	display: flex;
+	line-height: 27px;
+	border-radius: 2px;
+	margin: 10px 0;
+}
+.stepsForm__warning > svg {
+	margin-right: 10px;
+}
+.stepsForm__warning > button {
+	position: relative;
+}
+.stepsForm__warning > button::after{
+	content: "";
+	display: block;
+	width: 80%;
+	height: 1px;
+	background-color: var(--color-txt);
+	position: absolute;
+	bottom: 3px;
+	left: 6px;
+}
+
+/* Footer */
+footer {
+	background-color: var(--color-bg);
+	font-size: 14px;
+	color: var(--color-gy);
+	padding: max(2.7vw, 25px) 25px;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+footer a {
+	font-weight: bold;
+	color: var(--color-txt);
+}
